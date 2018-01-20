@@ -1,0 +1,20 @@
+{
+  "name": "cra-made-simple",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-scripts": "1.1.0",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "styled-components": "^2.4.0"
+  },
+  "scripts": {
+    "start": "NODE_PATH=src/ react-scripts start",
+    "build": "NODE_PATH=src/ react-scripts build",
+    "test": "NODE_PATH=src/ react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
