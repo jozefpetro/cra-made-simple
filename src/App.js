@@ -1,18 +1,24 @@
 import React from 'react'
-import styled from 'styled-components'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import asyncRoute from './asyncRoute'
+import Home from 'pages/Home'
 
-const Heading = styled.h1`
-  font-weight: 300;
-`
+const PageOne = asyncRoute(() => import('pages/PageOne'))
+const PageTwo = asyncRoute(() => import('pages/PageTwo'))
+
+PageTwo.preload()
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Heading>
-          It's just React
-        </Heading>
-      </div>
+      <Router>
+        <Switch>
+          <Redirect from="/" to="/home" exact />
+          <Route  path="/home" component={Home} />
+          <Route  path="/pageOne" component={PageOne} />
+          <Route  path="/pageTwo" component={PageTwo} />
+        </Switch>
+      </Router>
     )
   }
 }
